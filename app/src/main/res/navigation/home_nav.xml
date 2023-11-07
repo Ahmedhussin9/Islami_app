@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_nav"
+    app:startDestination="@id/quranFragment">
+
+    <fragment
+        android:id="@+id/quranFragment"
+        android:name="com.example.islami.ui.home.fragments.quran.QuranFragment"
+        android:label="fragment_quran"
+        tools:layout="@layout/fragment_quran" />
+    <fragment
+        android:id="@+id/hadethFragment"
+        android:name="com.example.islami.ui.home.fragments.hadeth.HadethFragment"
+        android:label="fragment_hadeth"
+        tools:layout="@layout/fragment_hadeth" />
+    <fragment
+        android:id="@+id/sebhaFragment"
+        android:name="com.example.islami.ui.home.fragments.sebha.SebhaFragment"
+        android:label="fragment_sebha"
+        tools:layout="@layout/fragment_sebha" />
+</navigation>
