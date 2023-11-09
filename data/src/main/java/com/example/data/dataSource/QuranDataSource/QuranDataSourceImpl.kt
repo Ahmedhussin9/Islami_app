@@ -1,4 +1,4 @@
-package com.example.data.dataSource
+package com.example.data.dataSource.QuranDataSource
 
 import com.example.data.dataSourceContract.QuranDataSource
 import javax.inject.Inject

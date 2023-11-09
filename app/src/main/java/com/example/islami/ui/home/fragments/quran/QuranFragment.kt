@@ -11,7 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.islami.R
 import com.example.islami.databinding.FragmentQuranBinding
 import com.example.islami.ui.Constnats
-import com.example.islami.ui.home.activites.SoraDetails
+import com.example.islami.ui.home.activites.soraDetailss.SoraDetails
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -29,7 +29,6 @@ class QuranFragment : Fragment() {
         super.onCreate(savedInstanceState)
         viewModel =ViewModelProvider(this)[QuranFragmentViewModel::class.java]
         viewModel.invokeAction(QuranFragmentContract.Action.loadQuranTitle)
-
 
     }
    private val adapter = QuranTitlesAdapter()
@@ -67,9 +66,9 @@ class QuranFragment : Fragment() {
             }
         }
     private fun navigateToSoraDetails(position:Int,name:String) {
-        val intent = Intent(context,SoraDetails::class.java)
+        val intent = Intent(context, SoraDetails::class.java)
         intent.putExtra(Constnats.EXTRA_SORA_NAME,name)
-        intent.putExtra(Constnats.EXTRA_SORA_POSITION,position)
+        intent.putExtra(Constnats.EXTRA_SORA_POSITION,position+1)
         startActivity(intent)
     }
 }

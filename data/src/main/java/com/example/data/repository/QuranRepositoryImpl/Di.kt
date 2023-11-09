@@ -1,4 +1,4 @@
-package com.example.data.repository
+package com.example.data.repository.QuranRepositoryImpl
 
 import com.example.domain.repositories.QuranRepository.QuranTitlesRepository
 import dagger.Binds

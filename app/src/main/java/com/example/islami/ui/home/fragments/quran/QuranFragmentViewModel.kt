@@ -3,11 +3,9 @@ package com.example.islami.ui.home.fragments.quran
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.example.domain.usecases.getQuranTitlesUseCase
 import com.example.islami.SingleLiveEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 @HiltViewModel
 class QuranFragmentViewModel @Inject constructor(
