@@ -1,6 +1,5 @@
-package com.example.data.repository
+package com.example.data.repository.QuranRepositoryImpl
 
-import com.example.data.dataSource.QuranDataSourceImpl
 import com.example.data.dataSourceContract.QuranDataSource
 import com.example.domain.repositories.QuranRepository.QuranTitlesRepository
 import javax.inject.Inject

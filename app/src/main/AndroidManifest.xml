@@ -14,7 +14,7 @@
         android:theme="@style/Theme.Islami"
         tools:targetApi="31">
         <activity
-            android:name=".ui.home.activites.SoraDetails"
+            android:name=".ui.home.activites.soraDetailss.SoraDetails"
             android:exported="false" />
         <activity
             android:name=".ui.home.HomeActivity"
