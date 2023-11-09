@@ -1,14 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.fragments.sebha.SebhaFragment">
+    tools:background="@drawable/mainbackground">
 
-    <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:id="@+id/sebha_body"
+        android:layout_width="210dp"
+        android:layout_height="210dp"
+        android:layout_marginTop="70dp"
+        android:src="@drawable/bodysebha"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="178dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="86dp" />
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/headsebha"
+        app:layout_constraintBottom_toTopOf="@id/guideline2"
+        app:layout_constraintStart_toStartOf="@id/guideline"
+        />
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
-
-</FrameLayout>
+        android:id="@+id/tasbehaCount_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="Tasbehat Count"
+        android:textColor="#242424"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="@id/sebha_body"
+        app:layout_constraintStart_toStartOf="@id/sebha_body"
+        app:layout_constraintTop_toBottomOf="@id/sebha_body"/>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/counter"
+        android:layout_width="70dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="18dp"
+        android:backgroundTint="#C9B396"
+        app:cardCornerRadius="20sp"
+        app:layout_constraintEnd_toEndOf="@id/tasbehaCount_text"
+        app:layout_constraintStart_toStartOf="@id/tasbehaCount_text"
+        app:layout_constraintTop_toBottomOf="@id/tasbehaCount_text">
+        <TextView
+            android:id="@+id/count"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            tools:text="0"
+            android:textColor="#242424"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+    </androidx.cardview.widget.CardView>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/tasbehButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:padding="15dp"
+        android:text="@string/subhan_alah"
+        android:textSize="20sp"
+        app:cornerRadius="20sp"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="@id/counter"
+        app:layout_constraintStart_toStartOf="@id/counter"
+        app:layout_constraintTop_toBottomOf="@id/counter"/>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/clear_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cornerRadius="20sp"
+        android:text="Clear"
+        android:textAllCaps="false"
+        app:layout_constraintStart_toStartOf="@id/tasbehButton"
+        app:layout_constraintEnd_toEndOf="@id/tasbehButton"
+        app:layout_constraintTop_toBottomOf="@id/tasbehButton"
+        android:textSize="20sp"
+        android:layout_marginTop="20sp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
