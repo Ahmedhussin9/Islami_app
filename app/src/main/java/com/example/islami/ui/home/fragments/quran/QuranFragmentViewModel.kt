@@ -3,7 +3,7 @@ package com.example.islami.ui.home.fragments.quran
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.domain.usecases.getQuranTitlesUseCase
+import com.example.domain.usecases.QuranFragmentUseCases.getQuranTitlesUseCase
 import com.example.islami.SingleLiveEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject

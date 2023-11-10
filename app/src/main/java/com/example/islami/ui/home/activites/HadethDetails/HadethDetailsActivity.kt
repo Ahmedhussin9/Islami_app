@@ -32,16 +32,14 @@ class HadethDetailsActivity : AppCompatActivity() {
     private fun bindHadeth() {
         viewBiding.title.text = hadeth?.title
         viewBiding.hadethLayout.hadethContent.text = hadeth?.content
-
     }
 
-    var hadeth: Hadeth? = null
+    var hadeth: com.example.domain.model.Hadeth? = null
     private fun initParams() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            hadeth = intent.getParcelableExtra(Constnats.EXTRA_HADETH, Hadeth::class.java)
-
+            hadeth = intent.getParcelableExtra(Constnats.EXTRA_HADETH, com.example.domain.model.Hadeth::class.java)
         }else{
-            hadeth = intent.getParcelableExtra(Constnats.EXTRA_HADETH)as Hadeth?
+            hadeth = intent.getParcelableExtra(Constnats.EXTRA_HADETH)as com.example.domain.model.Hadeth?
         }
     }
 }
