@@ -7,7 +7,8 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 
 class HadethFragmentUseCase @Inject constructor(
-    private val hadethRepository: HadethRepository
+    private val hadethRepository: HadethRepository,
+    @ApplicationContext val context: Context
 ) {
     fun invoke(@ApplicationContext context: Context):List<Hadeth>{
         return hadethRepository.getHadethList(context)

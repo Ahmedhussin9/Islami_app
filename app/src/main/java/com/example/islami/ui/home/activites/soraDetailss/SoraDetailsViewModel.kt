@@ -11,7 +11,6 @@ import javax.inject.Inject
 @HiltViewModel
 class SoraDetailsViewModel @Inject constructor(
    private val useCase: GetSoraDetailsUseCase,
-   @ApplicationContext val context: Context,
 ) :ViewModel(),SoraDetailsContract.ViewModel{
    lateinit var soraName:String
    var soraIndex:Int = 0
@@ -21,7 +20,7 @@ class SoraDetailsViewModel @Inject constructor(
    override val event: LiveData<SoraDetailsContract.Event> = _event
 
    private fun loadSoraDetails() {
-      val data =useCase.invoke(context,soraIndex,soraName)
+      val data =useCase.invoke(useCase.context,soraIndex,soraName)
       _state.postValue(SoraDetailsContract.State.Success(data))
    }
 

@@ -6,9 +6,10 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 
 class GetSoraDetailsUseCase @Inject constructor(
-    private val soraDetailsRepository: SoraDetailsRepository
+    private val soraDetailsRepository: SoraDetailsRepository,
+    @ApplicationContext val context: Context
 ) {
-    fun invoke(@ApplicationContext context:Context,soraIndex:Int,name:String):List<String>{
+    fun invoke(context:Context,soraIndex:Int,name:String):List<String>{
          return soraDetailsRepository.getSoraDetails(context,soraIndex,name)
     }
 }

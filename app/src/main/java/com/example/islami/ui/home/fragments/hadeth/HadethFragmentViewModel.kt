@@ -14,14 +14,13 @@ import javax.inject.Inject
 @HiltViewModel
 class HadethFragmentViewModel @Inject constructor(
    private val useCase: HadethFragmentUseCase,
-   @ApplicationContext val context: Context
 ) :ViewModel(),HadethFragmentContract.ViewModel {
     private val _state =MutableLiveData<HadethFragmentContract.State>()
     override val state: MutableLiveData<HadethFragmentContract.State> = _state
     private val _event = SingleLiveEvent<HadethFragmentContract.Event>()
     override val event: LiveData<HadethFragmentContract.Event> =_event
     fun loadHadethList(){
-      val data: List<Hadeth> = useCase.invoke(context = context)
+      val data: List<Hadeth> = useCase.invoke(context = useCase.context)
         _state.postValue(HadethFragmentContract.State.Success(data))
           }
     override fun invokeAction(action: HadethFragmentContract.Action) {
