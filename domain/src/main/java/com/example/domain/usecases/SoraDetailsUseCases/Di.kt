@@ -1,6 +1,5 @@
-package com.example.domain.usecases
+package com.example.domain.usecases.SoraDetailsUseCases
 
-import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ViewModelComponent

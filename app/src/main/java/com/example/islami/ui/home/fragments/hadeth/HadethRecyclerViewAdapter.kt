@@ -7,7 +7,7 @@ import com.example.islami.databinding.ItemHadethBinding
 import com.example.islami.ui.home.model.Hadeth
 
 
-class HadethRecyclerViewAdapter(private var items:List<Hadeth>?):RecyclerView.Adapter<HadethRecyclerViewAdapter.soraViewHolder>() {
+class HadethRecyclerViewAdapter(private var items:List<com.example.domain.model.Hadeth>?):RecyclerView.Adapter<HadethRecyclerViewAdapter.soraViewHolder>() {
     class soraViewHolder(var viewBinding: ItemHadethBinding):RecyclerView.ViewHolder(viewBinding.root){
 
     }
@@ -22,9 +22,9 @@ class HadethRecyclerViewAdapter(private var items:List<Hadeth>?):RecyclerView.Ad
     }
     var onItemClickListener:OnItemClickListener? = null
    fun interface OnItemClickListener{
-        fun onItemClick(position: Int,item: Hadeth)
+        fun onItemClick(position: Int,item: com.example.domain.model.Hadeth)
     }
-    fun bindItems(newlist:List<Hadeth>){
+    fun bindItems(newlist:List<com.example.domain.model.Hadeth>){
         items = newlist
         notifyDataSetChanged()
     }

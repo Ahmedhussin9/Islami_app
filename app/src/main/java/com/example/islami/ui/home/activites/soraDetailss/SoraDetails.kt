@@ -1,5 +1,4 @@
 package com.example.islami.ui.home.activites.soraDetailss
-
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
@@ -8,31 +7,37 @@ import com.example.islami.R
 import com.example.islami.databinding.ActivitySoraDetailsBinding
 
 import com.example.islami.ui.Constnats
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class SoraDetails : AppCompatActivity() {
     lateinit var viewBinding: ActivitySoraDetailsBinding
     lateinit var viewModel: SoraDetailsViewModel
-
+    lateinit var soraName:String
+    var soraIndex:Int = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewBinding = DataBindingUtil.setContentView(this,R.layout.activity_sora_details)
         initPrams()
         initViews()
-        loadSoraDetails()
+        subscribeToLiveData()
+        viewModel.invokeAction(SoraDetailsContract.Action.PassPramasToViewModel(soraIndex,soraName))
+        viewModel.invokeAction(SoraDetailsContract.Action.loadSoraDetils())
     }
-    lateinit var soraName:String
-    var soraIndex:Int = 0
+
+    private fun subscribeToLiveData() {
+        viewModel.state.observe(this){
+            when(it){
+                is SoraDetailsContract.State.Success->bindVerses(it.SoraDetails)
+            }
+        }
+    }
+
     private fun initPrams() {
         soraIndex = intent.getIntExtra(Constnats.EXTRA_SORA_POSITION,0)
         soraName = intent.getStringExtra(Constnats.EXTRA_SORA_NAME)?:""
     }
 
-    fun loadSoraDetails(){
-        val fileContent =assets.open("$soraIndex.txt").bufferedReader().use { it.readText() }
-        val lines= fileContent.trim().split("\n")
-        bindVerses(lines)
-    }
     lateinit var adapter: VersesAdapter
     private fun bindVerses(lines: List<String>) {
         adapter = VersesAdapter(lines)
